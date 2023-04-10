@@ -632,6 +632,7 @@ class Provider:
 
             print("dep name", dep.name)
             print("marker_env", self._env.marker_env)
+            print("dep.mark", dep.marker)
             if self._env and not dep.marker.validate(self._env.marker_env):
                 continue
 
