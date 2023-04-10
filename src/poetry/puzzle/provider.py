@@ -36,7 +36,7 @@ from poetry.repositories.exceptions import PackageNotFound
 from poetry.utils.helpers import download_file
 from poetry.utils.helpers import get_file_hash
 from poetry.vcs.git import Git
-
+import json
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -631,8 +631,8 @@ class Provider:
                 continue
 
             print("dep name", dep.name)
-            print("marker_env", self._env.marker_env)
-            print("dep.mark", dep.marker)
+            print("marker_env", json.dumps(self._env.marker_env))
+            print("dep.mark", json.dumps(str(dep.marker)))
             if self._env and not dep.marker.validate(self._env.marker_env):
                 continue
 
