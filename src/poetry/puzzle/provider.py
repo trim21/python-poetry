@@ -630,9 +630,10 @@ class Provider:
             if dep.name in self.UNSAFE_PACKAGES:
                 continue
 
-            print("dep name", dep.name)
-            print("marker_env", json.dumps(self._env.marker_env))
-            print("dep.mark", json.dumps(str(dep.marker)))
+            if self._env:
+                print("dep name", dep.name)
+                print("marker_env", json.dumps(self._env.marker_env))
+                print("dep.mark", json.dumps(str(dep.marker)))
             if self._env and not dep.marker.validate(self._env.marker_env):
                 continue
 
